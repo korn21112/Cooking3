@@ -27,6 +27,8 @@ import {
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import firestore from '@react-native-firebase/firestore';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 firestore()
   .collection('users')
@@ -39,12 +41,32 @@ firestore()
     });
   });
 
+const Stack = createStackNavigator();
+
+function ScreenA() {
+  return (
+    <View>
+      <Text>
+        ScreenA
+      </Text>
+    </View>
+  );
+}
+
 function App () {
   return (
-    <SafeAreaView>
-      <FontAwesome5 name={'comments'} size={100} color='red'/>
-      <Text>hello world</Text>
-    </SafeAreaView>
+    // <SafeAreaView>
+    //   <FontAwesome5 name={'comments'} size={100} color='red'/>
+    //   <Text>hello world3</Text>
+    // </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen 
+          name="Screen_A"
+          component={ScreenA}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
