@@ -26,6 +26,18 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import firestore from '@react-native-firebase/firestore';
+
+firestore()
+  .collection('users')
+  .get()
+  .then(querySnapshot => {
+    console.log('Total users: ', querySnapshot.size);
+
+    querySnapshot.forEach(documentSnapshot => {
+      console.log('User ID: ', documentSnapshot.id, documentSnapshot.data());
+    });
+  });
 
 function App () {
   return (
