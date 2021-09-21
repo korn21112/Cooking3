@@ -152,10 +152,16 @@ function App(){
         <Stack.Screen
           name="PutIngredient"
           component={PutIngredient}
+          options={{
+            headerShown: false,
+          }}
         />
         <Stack.Screen
           name="Menu"
           component={Menu}
+          options={{
+            headerShown: false,
+          }}
         />
         <Stack.Screen
           name="Detail"
@@ -210,6 +216,7 @@ function BottomTabNavigator() {
         name="PutIngredient"
         component={PutIngredient}
         options={{
+          headerShown: false,
           title: 'PutIngredient',
           // tabBarIcon: ({color}) => {
           //   return <Icon color={color} name="building" size={20} solid />;
@@ -220,6 +227,7 @@ function BottomTabNavigator() {
         name="AllMenu"
         component={AllMenu}
         options={{
+          headerShown: false,
           title: 'AllMenu',
           // tabBarIcon: ({color}) => {
           //   return <Icon color={color} name="receipt" size={20} solid />;
@@ -230,6 +238,7 @@ function BottomTabNavigator() {
         name="AddMenu"
         component={AddMenu}
         options={{
+          headerShown: false,
           title: 'AddMenu',
           // tabBarIcon: ({color}) => {
           //   return <Icon color={color} name="receipt" size={20} solid />;
@@ -240,6 +249,7 @@ function BottomTabNavigator() {
         name="Profile"
         component={Profile}
         options={{
+          headerShown: false,
           title: 'Profile',
           // tabBarIcon: ({color}) => {
           //   return <Icon color={color} name="receipt" size={20} solid />;
