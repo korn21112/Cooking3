@@ -16,6 +16,7 @@ import {
 } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 function PutIngredient() {
   const navigation = useNavigation();
@@ -50,9 +51,10 @@ function PutIngredient() {
         onPress={() => onPressHandle(input)}
       >
         <View style={styles.addButton}>
-          <Text style={styles.textAddButton}>
+        <FontAwesome5 name={'plus'} size={25} color={'#ffffff'}/>
+          {/* <Text style={styles.textAddButton}>
             ADD
-        </Text>
+        </Text> */}
         </View>
       </TouchableOpacity>
 
@@ -67,14 +69,7 @@ function PutIngredient() {
           searchHandle()
         }}
       >
-        <Text>
-          Search
-        </Text>
-        {/* <FontAwesome5
-          name={'plus'}
-          size={20}
-          color={'#ffffff'}
-        /> */}
+        <FontAwesome5 name={'search'} size={30} color={'#ffffff'}/>
       </TouchableOpacity>
     )
   }
@@ -104,9 +99,10 @@ function PutIngredient() {
             <View style={styles.ingredientList}>
               <View style={styles.ingredientListLeftSide}>
                 <View style={styles.icon}>
-                  <Text>
+                  {/* <Text>
                     I
-                  </Text>
+                  </Text> */}
+                  <FontAwesome5 name={'angle-right'} size={12} color={'black'}/>
                 </View>
                 <Text>
                   {item.name}
@@ -116,7 +112,7 @@ function PutIngredient() {
                 style={styles.deleteButton}
                 onPress={() => handleRemoveItem(item.name)}
               >
-                <Text>-</Text>
+                <FontAwesome5 name={'eraser'} size={12} color={'#ffffff'}/>
               </TouchableOpacity>
             </View>
           )}

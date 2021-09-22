@@ -18,6 +18,7 @@ import {
 import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import firestore from '@react-native-firebase/firestore';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 const Stack = createStackNavigator();
 
@@ -100,9 +101,10 @@ function AllMenu() {
         onPress={() => onPressHandle(input)}
       >
         <View style={styles.searchButton}>
-          <Text style={styles.textSearchButton}>
+          <FontAwesome5 name={'search'} size={25} color={'white'}/>
+          {/* <Text style={styles.textSearchButton}>
             Search
-        </Text>
+        </Text> */}
         </View>
       </TouchableOpacity>
 

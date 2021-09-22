@@ -115,6 +115,7 @@ import Detail from './screens/Detail'
 import UpdateDetail from './screens/UpdateDetail'
 import PutIngredient from './screens/PutIngredient'
 import Profile from './screens/Profile'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 // import Login from './screens/Login'
 
 const Stack = createStackNavigator();
@@ -218,9 +219,9 @@ function BottomTabNavigator() {
         options={{
           headerShown: false,
           title: 'PutIngredient',
-          // tabBarIcon: ({color}) => {
-          //   return <Icon color={color} name="building" size={20} solid />;
-          // },
+          tabBarIcon: ({color}) => {
+            return <FontAwesome5 name={'utensils'} size={20} color={color}/>;
+          },
         }}
       />
       <BottomTab.Screen
@@ -229,9 +230,9 @@ function BottomTabNavigator() {
         options={{
           headerShown: false,
           title: 'AllMenu',
-          // tabBarIcon: ({color}) => {
-          //   return <Icon color={color} name="receipt" size={20} solid />;
-          // },
+          tabBarIcon: ({color}) => {
+            return <FontAwesome5 name={'list-alt'} size={20} color={color}/>;
+          },
         }}
       />
       <BottomTab.Screen
@@ -240,9 +241,9 @@ function BottomTabNavigator() {
         options={{
           headerShown: false,
           title: 'AddMenu',
-          // tabBarIcon: ({color}) => {
-          //   return <Icon color={color} name="receipt" size={20} solid />;
-          // },
+          tabBarIcon: ({color}) => {
+            return <FontAwesome5 name={'plus-square'} size={20} color={color}/>;
+          },
         }}
       />
       <BottomTab.Screen
@@ -251,9 +252,9 @@ function BottomTabNavigator() {
         options={{
           headerShown: false,
           title: 'Profile',
-          // tabBarIcon: ({color}) => {
-          //   return <Icon color={color} name="receipt" size={20} solid />;
-          // },
+          tabBarIcon: ({color}) => {
+            return <FontAwesome5 name={'user'} size={20} color={color}/>;
+          },
         }}
       />
       {/* <BottomTab.Screen

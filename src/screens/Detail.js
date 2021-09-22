@@ -20,6 +20,7 @@ import {
 import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import firestore from '@react-native-firebase/firestore';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import auth from '@react-native-firebase/auth';
 
 const Stack = createStackNavigator();
@@ -160,14 +161,7 @@ function Detail() {
                     navigation.goBack();
                 }}
             >
-                <Text>
-                    B
-            </Text>
-                {/* <FontAwesome5
-              name={'plus'}
-              size={20}
-              color={'#ffffff'}
-            /> */}
+                <FontAwesome5 name={'angle-left'} size={25} color={'#ffffff'}/>
             </TouchableOpacity>
         )
     }
@@ -260,8 +254,9 @@ function Detail() {
                         <View
                             style={styles.rating}
                         >
+                            <FontAwesome5 name={'star'} size={25} color={'white'}/>
                             <Text style={styles.ratingText}>
-                                S {item.rating.toFixed(1)}
+                                {item.rating.toFixed(1)}
                             </Text>
                         </View>
                     </TouchableOpacity>
@@ -276,7 +271,7 @@ function Detail() {
             <View style={styles.infoSection}>
                 <View style={styles.infoContainer}>
                     <View style={styles.infoIconContainer}>
-
+                        <FontAwesome5 name={'fire-alt'} size={25} color={'#FF8C10'}/>
                     </View>
                     <View style={styles.infoTextContainer}>
                         <Text> 103</Text>
@@ -292,7 +287,7 @@ function Detail() {
         return (
             <View style={styles.ingredientSection}>
                 <Text style={styles.ingredientTextHeader}>Ingredients</Text>
-                <View style={styles.ingredientContentSection}>
+                <SafeAreaView style={styles.ingredientContentSection}>
                     <FlatList
                         data={foods[0]?.ingredients}
                         renderItem={({ item, index }) => (
@@ -306,7 +301,7 @@ function Detail() {
                         )}
                         keyExtractor={(item, index) => index.toString()}
                     />
-                </View>
+                </SafeAreaView>
             </View>
         )
     }
@@ -317,7 +312,7 @@ function Detail() {
                 <Text style={styles.ingredientTextHeader}>
                     Method
                 </Text>
-                <View style={styles.ingredientContentSection}>
+                <SafeAreaView style={styles.ingredientContentSection}>
                     <FlatList
                         data={foods[0]?.recipe}
                         renderItem={({ item, index }) => (
@@ -331,7 +326,7 @@ function Detail() {
                         )}
                         keyExtractor={(item, index) => index.toString()}
                     />
-                </View>
+                </SafeAreaView>
             </View>
         )
     }
@@ -342,12 +337,16 @@ function Detail() {
                 <TouchableOpacity
                     onPress={() => onPressUpdateHandle()}
                 >
-                    <View style={styles.updateButton}></View>
+                    <View style={styles.updateButton}>
+                        <FontAwesome5 name={'edit'} size={25} color={'white'}/>
+                    </View>
                 </TouchableOpacity>
                 <TouchableOpacity
                     onPress={() => onPressRemoveHandle()}
                 >
-                    <View style={styles.deleteButton}></View>
+                    <View style={styles.deleteButton}>
+                        <FontAwesome5 name={'eraser'} size={25} color={'white'}/>
+                    </View>
                 </TouchableOpacity>
             </View>
         )
@@ -548,8 +547,9 @@ const styles = StyleSheet.create({
         height: 45,
         borderRadius: 30,
         backgroundColor: '#FF8C10',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         alignItems: 'center',
+        flexDirection: 'row',
     },
     ratingText: {
         fontSize: 20,
@@ -579,6 +579,8 @@ const styles = StyleSheet.create({
         height: 60,
         backgroundColor: 'white',
         borderRadius: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     infoTextContainer: {
         flex: 1,
