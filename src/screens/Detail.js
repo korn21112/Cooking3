@@ -1,13 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
-    Alert,
-    Pressable,
-    SafeAreaView,
     ScrollView,
     StatusBar,
     StyleSheet,
     Text,
-    useColorScheme,
     View,
     TextInput,
     Button,
@@ -161,7 +157,7 @@ function Detail() {
                     navigation.goBack();
                 }}
             >
-                <FontAwesome5 name={'angle-left'} size={25} color={'#ffffff'}/>
+                <FontAwesome5 name={'angle-left'} size={25} color={'#ffffff'} />
             </TouchableOpacity>
         )
     }
@@ -254,7 +250,7 @@ function Detail() {
                         <View
                             style={styles.rating}
                         >
-                            <FontAwesome5 name={'star'} size={25} color={'white'}/>
+                            <FontAwesome5 name={'star'} size={25} color={'white'} />
                             <Text style={styles.ratingText}>
                                 {item.rating.toFixed(1)}
                             </Text>
@@ -271,7 +267,7 @@ function Detail() {
             <View style={styles.infoSection}>
                 <View style={styles.infoContainer}>
                     <View style={styles.infoIconContainer}>
-                        <FontAwesome5 name={'fire-alt'} size={25} color={'#FF8C10'}/>
+                        <FontAwesome5 name={'fire-alt'} size={25} color={'#FF8C10'} />
                     </View>
                     <View style={styles.infoTextContainer}>
                         <Text> 103</Text>
@@ -284,11 +280,12 @@ function Detail() {
     }
 
     const IngredientSection = () => {
+        console.log(foods[0]?.ingredients)
         return (
             <View style={styles.ingredientSection}>
                 <Text style={styles.ingredientTextHeader}>Ingredients</Text>
-                <SafeAreaView style={styles.ingredientContentSection}>
-                    <FlatList
+                <View style={styles.ingredientContentSection}>
+                    {/* <FlatList
                         data={foods[0]?.ingredients}
                         renderItem={({ item, index }) => (
                             <View style={styles.ingredientList}>
@@ -300,8 +297,22 @@ function Detail() {
                             </View>
                         )}
                         keyExtractor={(item, index) => index.toString()}
-                    />
-                </SafeAreaView>
+                    /> */}
+                    {foods[0]?.ingredients.map((item) => {
+                        return (
+                            <View 
+                                style={styles.ingredientList}
+                                keyExtractor={(item, index) => index.toString()}
+                            >
+                                <View style={styles.point}>
+                                </View>
+                                <Text style={styles.ingredientsTextContent}>
+                                    {item}
+                                </Text>
+                            </View>
+                        )
+                    })}
+                </View>
             </View>
         )
     }
@@ -312,8 +323,8 @@ function Detail() {
                 <Text style={styles.ingredientTextHeader}>
                     Method
                 </Text>
-                <SafeAreaView style={styles.ingredientContentSection}>
-                    <FlatList
+                <View style={styles.ingredientContentSection}>
+                    {/* <FlatList
                         data={foods[0]?.recipe}
                         renderItem={({ item, index }) => (
                             <View style={styles.methodList}>
@@ -325,8 +336,22 @@ function Detail() {
                             </View>
                         )}
                         keyExtractor={(item, index) => index.toString()}
-                    />
-                </SafeAreaView>
+                    /> */}
+                    {foods[0]?.recipe.map((item) => {
+                        return (
+                            <View 
+                                style={styles.ingredientList}
+                                keyExtractor={(item, index) => index.toString()}
+                            >
+                                <View style={styles.point}>
+                                </View>
+                                <Text style={styles.ingredientsTextContent}>
+                                    {item}
+                                </Text>
+                            </View>
+                        )
+                    })}
+                </View>
             </View>
         )
     }
@@ -338,14 +363,14 @@ function Detail() {
                     onPress={() => onPressUpdateHandle()}
                 >
                     <View style={styles.updateButton}>
-                        <FontAwesome5 name={'edit'} size={25} color={'white'}/>
+                        <FontAwesome5 name={'edit'} size={25} color={'white'} />
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
                     onPress={() => onPressRemoveHandle()}
                 >
                     <View style={styles.deleteButton}>
-                        <FontAwesome5 name={'eraser'} size={25} color={'white'}/>
+                        <FontAwesome5 name={'eraser'} size={25} color={'white'} />
                     </View>
                 </TouchableOpacity>
             </View>
@@ -359,6 +384,7 @@ function Detail() {
             <ImageSection />
             <TopSection />
             <InfoSection />
+            {/* <SectionListBasic /> */}
             <IngredientSection />
             <MethodSection />
             <FooterSection />
@@ -588,6 +614,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     ingredientSection: {
+        flex: 1,
         margin: 10,
     },
     ingredientTextHeader: {
