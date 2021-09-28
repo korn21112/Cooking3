@@ -35,9 +35,12 @@ function Home() {
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     setTimeout(() => {
-      if(!user){
+      if(auth()?.currentUser){
+        console.log('hello')
+        console.log(user)
         navigation.replace('BottomTabNavigator');//('Home');
       } else {
+        console.log(user)
         navigation.replace('Login');
       }
       
