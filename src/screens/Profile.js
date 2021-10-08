@@ -81,7 +81,7 @@ function Profile() {
         <TouchableOpacity
             style={styles.backButton}
             onPress={() => {
-                // navigation.goBack();
+                navigation.navigate('EditProfile')
             }}
         >
             <FontAwesome5 name={'edit'} size={25} color={'#ffffff'} />
