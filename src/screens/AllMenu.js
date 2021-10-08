@@ -73,8 +73,9 @@ function AllMenu() {
                   <View
                     style={styles.rating}
                   >
+                    <FontAwesome5 name={'star'} size={15} color={'white'} />
                     <Text style={styles.ratingText}>
-                      S {item.rating.toFixed(1)}
+                      {item.rating.toFixed(1)}
                     </Text>
                   </View>
                 </ImageBackground>
@@ -101,7 +102,7 @@ function AllMenu() {
         onPress={() => onPressHandle(input)}
       >
         <View style={styles.searchButton}>
-          <FontAwesome5 name={'search'} size={25} color={'white'}/>
+          <FontAwesome5 name={'search'} size={25} color={'white'} />
           {/* <Text style={styles.textSearchButton}>
             Search
         </Text> */}
@@ -213,11 +214,12 @@ const styles = StyleSheet.create({
     height: 25,
     borderRadius: 30,
     backgroundColor: '#FF8C10',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     position: 'absolute',
     bottom: 10,
     right: 10,
+    flexDirection: 'row',
   },
   ratingText: {
     fontWeight: 'bold',
